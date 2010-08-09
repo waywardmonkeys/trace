@@ -16,12 +16,7 @@
 
 package com.datafueled.trace.core
 
-class Timer(val startTime: Long) {
-  def stop : TimedEvent = {
-    return new TimedEvent(startTime, System.nanoTime())
-  }
+class TimedEvent(startTime: Long, val endTime: Long) extends Event(startTime) {
+  def duration = endTime - startTime
 }
 
-object Timer {
-  def start = new Timer(System.nanoTime())
-}

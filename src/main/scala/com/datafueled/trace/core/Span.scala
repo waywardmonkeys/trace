@@ -16,5 +16,5 @@
 
 package com.datafueled.trace.core
 
-class Timeline
+class Span
 

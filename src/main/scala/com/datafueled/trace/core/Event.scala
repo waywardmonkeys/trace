@@ -16,7 +16,6 @@
 
 package com.datafueled.trace.core
 
-class Event(val startTime: Long, val endTime: Long) {
-  def duration = endTime - startTime
+class Event(val startTime: Long) {
 }
 
