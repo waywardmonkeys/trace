@@ -13,3 +13,9 @@ It operates in 2 modes:
 
 The user interface will be presented by embedding a web server within the daemon or the application which will serve up the user interface for searching, querying and analysis.
 
+How to Build
+------------
+
+ * Install Simple Build Tool as described on http://code.google.com/p/simple-build-tool/wiki/Setup
+ * Run the compile command in sbt.
+
