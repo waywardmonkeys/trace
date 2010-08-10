@@ -16,5 +16,7 @@
 
 package com.datafueled.trace.core
 
-class Trace
+class Trace {
+  val spans: List[Span] = Nil
+}
 

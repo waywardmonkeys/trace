@@ -16,7 +16,12 @@
 
 package com.datafueled.trace.core
 
-class TimedEvent(startTime: Long, val endTime: Long) extends Event(startTime) {
-  def duration = endTime - startTime
+import java.util.UUID
+
+class Annotation protected(val id: UUID, val timestamp: Long) {
+}
+
+object Annotation {
+  def make(timestamp: Long) = new Annotation(UUID.randomUUID(), timestamp)
 }
 

@@ -14,11 +14,17 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.core
+package com.datafueled.trace.util
 
-class Timer(val startTime: Long) {
-  def stop : TimedEvent = {
-    return new TimedEvent(startTime, System.nanoTime())
+import com.datafueled.trace.core.Span
+
+class Timer(val parentSpan: Option[Span], val startTime: Long) {
+  def stop : Span = {
+    if (parentSpan.isDefined()) {
+      return Span.make(parentSpan.get, startTime, System.nanoTime())
+    } else {
+      return Span.make(startTime, System.nanoTime())
+    }
   }
 }
 
