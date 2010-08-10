@@ -20,7 +20,7 @@ import java.util.UUID
 
 class Span(val id: UUID, val parentID: Option[UUID], val startTime: Long, val endTime: Long) {
   var session: Option[Session] = None
-  var name: String
+  var name: String = ""
   var annotations: List[Annotation] = Nil
   var children: List[Span] = Nil
 
