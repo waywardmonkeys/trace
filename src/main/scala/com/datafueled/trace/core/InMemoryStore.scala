@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.util
+package com.datafueled.trace.core
 
-import com.datafueled.trace.core.Span
+import scala.collection.mutable.HashMap
 
-class Timer(val parentSpan: Option[Span], val startTime: Long) {
-  def stop : Span = {
-    if (parentSpan.isDefined) {
-      return Span.make(parentSpan.get.id, startTime, System.nanoTime())
-    } else {
-      return Span.make(startTime, System.nanoTime())
-    }
+class InMemoryStore[K, V] {
+  val lookup = HashMap[K, V]()
+
+  def get(id: K) : V = {
+    lookup(id)
+  }
+
+  def put(id: K, obj: V) {
+    lookup(id) = obj
   }
 }
 
-object Timer {
-  def start = new Timer(None, System.nanoTime())
-}

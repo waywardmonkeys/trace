@@ -18,18 +18,9 @@ package com.datafueled.trace.core
 
 import java.util.UUID
 
-class Span(val id: UUID, val parentID: Option[UUID], val startTime: Long, val endTime: Long) {
-  var session: Option[Session] = None
-  var name: String
-  var annotations: List[Annotation] = Nil
-  var children: List[Span] = Nil
+class TextAnnotation protected(id: UUID, timestamp: Long, val text: String) extends Annotation(id, timestamp)
 
-  def duration = endTime - startTime
-}
-
-object Span {
-  def make(startTime: Long, endTime: Long) = new Span(UUID.randomUUID(), None, startTime, endTime)
-  def make(parentID: UUID, startTime: Long, endTime: Long) = new Span(UUID.randomUUID(), Some(parentID), startTime, endTime)
-  def make(id: UUID, parentID: UUID, startTime: Long, endTime: Long) = new Span(id, Some(parentID), startTime, endTime)
+object TextAnnotation {
+  def make(timestamp: Long, text: String) = new TextAnnotation(UUID.randomUUID(), timestamp, text)
 }
 

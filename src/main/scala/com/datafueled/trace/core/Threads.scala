@@ -14,20 +14,7 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.util
+package com.datafueled.trace.core
 
-import com.datafueled.trace.core.Span
+object Threads extends InMemoryStore[Long, Thread]
 
-class Timer(val parentSpan: Option[Span], val startTime: Long) {
-  def stop : Span = {
-    if (parentSpan.isDefined) {
-      return Span.make(parentSpan.get.id, startTime, System.nanoTime())
-    } else {
-      return Span.make(startTime, System.nanoTime())
-    }
-  }
-}
-
-object Timer {
-  def start = new Timer(None, System.nanoTime())
-}
