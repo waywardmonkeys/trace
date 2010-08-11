@@ -25,8 +25,8 @@ trait HasAttributes {
     attributes.get(type2attr().name)
   }
 
-  def getAttribute[A <: Attribute[_]](defaultValue: A#ValueType)(implicit type2attr: (() => A)) : A#ValueType = {
-    val a = attributes.get(type2attr().name)
+  def getAttributeValue[A <: Attribute[_]](defaultValue: A#ValueType)(implicit type2attr: (() => A)) : A#ValueType = {
+    val a = getAttribute[A](type2attr)
     if (a.isDefined) {
       a.get.value
     } else {
