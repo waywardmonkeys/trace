@@ -16,6 +16,5 @@
 
 package com.datafueled.trace.core.attributes
 
-abstract class IntAttribute extends Attribute[Int] {
-  val value: Int = 0
-}
+abstract class IntAttribute(initialValue: Int = 0) extends Attribute[Int](initialValue)
+

@@ -16,6 +16,5 @@
 
 package com.datafueled.trace.core.attributes
 
-abstract class LongAttribute extends Attribute[Long] {
-  val value: Long = 0
-}
+abstract class LongAttribute(initialValue: Long = 0) extends Attribute[Long](initialValue)
+

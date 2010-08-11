@@ -16,6 +16,5 @@
 
 package com.datafueled.trace.core.attributes
 
-abstract class StringAttribute extends Attribute[String] {
-  val value: String = ""
-}
+abstract class StringAttribute(initialValue: String = "") extends Attribute[String](initialValue)
+

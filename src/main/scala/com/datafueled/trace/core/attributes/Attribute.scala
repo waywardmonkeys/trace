@@ -16,9 +16,9 @@
 
 package com.datafueled.trace.core.attributes
 
-abstract class Attribute[V] {
+abstract class Attribute[V](initialValue: V) {
   type ValueType = V
   val name: Symbol
-  val value: V
+  val value: V = initialValue
 }
 
