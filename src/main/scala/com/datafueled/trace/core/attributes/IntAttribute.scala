@@ -14,19 +14,8 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.core
+package com.datafueled.trace.core.attributes
 
-package object attributes {
-  class TestInt extends IntAttribute {
-    val name = Symbol("TestInt")
-  }
-  object TestInt extends TestInt
-  implicit def type2attr4TestInt() = TestInt
-
-  class TestString extends StringAttribute {
-    val name = Symbol("TestString")
-  }
-  object TestString extends TestString
-  implicit def type2attr4TestString() = TestString
+abstract class IntAttribute extends Attribute[Int] {
+  val value: Int = 0
 }
-
