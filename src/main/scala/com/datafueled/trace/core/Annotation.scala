@@ -16,9 +16,16 @@
 
 package com.datafueled.trace.core
 
+import com.datafueled.trace.core.attributes._
 import java.util.UUID
 
-class Annotation protected(val id: UUID, val timestamp: Long) {
+class Annotation protected(val id: UUID, val timestamp: Long) extends HasAttributes {
+  override def getAttribute[A <: Attribute[_]](implicit type2attr: (() => A)) : Option[Attribute[_]] = {
+    type2attr() match {
+      case x : TimeStamp => Some(new TimeStamp(timestamp))
+      case _ => super.getAttribute[A](type2attr)
+    }
+  }
 }
 
 object Annotation {
