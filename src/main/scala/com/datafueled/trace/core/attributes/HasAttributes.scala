@@ -21,12 +21,21 @@ import scala.collection.mutable.HashMap
 trait HasAttributes {
   private val attributes = HashMap[Symbol, Attribute[_]]()
 
-  def getAttribute[A <: Attribute[_]](implicit type2attr: (() => A)) : Option[Attribute[_]] = {
-    attributes.get(type2attr().name)
+  def getAttribute(attributeName: Attribute[_]) : Option[Attribute[_]] = {
+    attributes.get(attributeName.name)
+  }
+
+  def getAttributeValue[A <: Attribute[_]](implicit type2attr: (() => A)) : Option[A#ValueType] = {
+    val a = getAttribute(type2attr())
+    if (a.isDefined) {
+      Some(a.get.value)
+    } else {
+      None
+    }
   }
 
   def getAttributeValue[A <: Attribute[_]](defaultValue: A#ValueType)(implicit type2attr: (() => A)) : A#ValueType = {
-    val a = getAttribute[A](type2attr)
+    val a = getAttribute(type2attr())
     if (a.isDefined) {
       a.get.value
     } else {

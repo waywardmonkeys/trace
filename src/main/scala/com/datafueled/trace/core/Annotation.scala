@@ -20,10 +20,10 @@ import com.datafueled.trace.core.attributes._
 import java.util.UUID
 
 class Annotation protected(val id: UUID, val timestamp: Long) extends HasAttributes {
-  override def getAttribute[A <: Attribute[_]](implicit type2attr: (() => A)) : Option[Attribute[_]] = {
-    type2attr() match {
+  override def getAttribute(attributeName: Attribute[_]) : Option[Attribute[_]] = {
+    attributeName match {
       case x : TimeStamp => Some(new TimeStamp(timestamp))
-      case _ => super.getAttribute[A](type2attr)
+      case _ => super.getAttribute(attributeName)
     }
   }
 }
