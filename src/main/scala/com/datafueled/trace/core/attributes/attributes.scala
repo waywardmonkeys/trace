@@ -16,41 +16,43 @@
 
 package com.datafueled.trace.core
 
-package object attributes {
+package attributes {
   class ClassName(initialValue: String = "") extends StringAttribute(initialValue) {
     val name = Symbol("ClassName")
   }
   object ClassName extends ClassName
-  implicit def type2attr4ClassName() = ClassName
 
   class Duration(initialValue: Long = 0) extends LongAttribute(initialValue) {
     val name = Symbol("Duration")
   }
   object Duration extends Duration
-  implicit def type2attr4Duration() = Duration
 
   class EndNanos(initialValue: Long = 0) extends LongAttribute(initialValue) {
     val name = Symbol("EndNanos")
   }
   object EndNanos extends EndNanos
-  implicit def type2attr4EndNanos() = EndNanos
 
   class StartNanos(initialValue: Long = 0) extends LongAttribute(initialValue) {
     val name = Symbol("StartNanos")
   }
   object StartNanos extends StartNanos
-  implicit def type2attr4StartNanos() = StartNanos
 
   class Text(initialValue: String = "") extends StringAttribute(initialValue) {
     val name = Symbol("Text")
   }
   object Text extends Text
-  implicit def type2attr4Text() = Text
 
   class TimeStamp(initialValue: Long = 0) extends LongAttribute(initialValue) {
     val name = Symbol("TimeStamp")
   }
   object TimeStamp extends TimeStamp
-  implicit def type2attr4TimeStamp() = TimeStamp
 }
 
+package object attributes {
+  implicit def type2attr4ClassName() = ClassName
+  implicit def type2attr4Duration() = Duration
+  implicit def type2attr4EndNanos() = EndNanos
+  implicit def type2attr4StartNanos() = StartNanos
+  implicit def type2attr4Text() = Text
+  implicit def type2attr4TimeStamp() = TimeStamp
+}
