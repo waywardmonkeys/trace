@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.core
+package com.datafueled.trace.core.objectmodel
 
 import com.datafueled.trace.core.attributes._
 import java.util.UUID
 
-class TextAnnotation protected(id: UUID, timestamp: Long, val text: String) extends Annotation(id, timestamp) {
+class Annotation protected(val id: UUID, val timestamp: Long) extends HasAttributes {
   override def getAttribute(attributeName: Attribute[_]) : Option[Attribute[_]] = {
     attributeName match {
-      case x : Text => Some(new Text(text))
+      case x : TimeStamp => Some(new TimeStamp(timestamp))
       case _ => super.getAttribute(attributeName)
     }
   }
 }
 
-object TextAnnotation {
-  def make(timestamp: Long, text: String) = new TextAnnotation(UUID.randomUUID(), timestamp, text)
+object Annotation {
+  def make(timestamp: Long) = new Annotation(UUID.randomUUID(), timestamp)
 }
 

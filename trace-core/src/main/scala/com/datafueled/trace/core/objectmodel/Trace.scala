@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.core
+package com.datafueled.trace.core.objectmodel
 
-object Threads extends InMemoryStore[Long, Thread]
+class Trace {
+  val spans: List[Span] = Nil
+}
 

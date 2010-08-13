@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.core
+package com.datafueled.trace.core.objectmodel
 
-class Trace {
-  val spans: List[Span] = Nil
-}
+import java.util.UUID
+
+class Host(val id: UUID, hostname: String)
 

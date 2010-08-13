@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.core
+package com.datafueled.trace.core.objectmodel
 
 import java.util.UUID
 
-object Sessions extends InMemoryStore[UUID, Session]
-
+class Session(val id: UUID, val hostID: UUID, val baseTime: Long, val baseNanos: Long)

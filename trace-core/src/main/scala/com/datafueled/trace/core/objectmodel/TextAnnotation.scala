@@ -14,9 +14,21 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.core
+package com.datafueled.trace.core.objectmodel
 
+import com.datafueled.trace.core.attributes._
 import java.util.UUID
 
-class Thread(val threadID: Long, val sessionID: UUID)
+class TextAnnotation protected(id: UUID, timestamp: Long, val text: String) extends Annotation(id, timestamp) {
+  override def getAttribute(attributeName: Attribute[_]) : Option[Attribute[_]] = {
+    attributeName match {
+      case x : Text => Some(new Text(text))
+      case _ => super.getAttribute(attributeName)
+    }
+  }
+}
+
+object TextAnnotation {
+  def make(timestamp: Long, text: String) = new TextAnnotation(UUID.randomUUID(), timestamp, text)
+}
 

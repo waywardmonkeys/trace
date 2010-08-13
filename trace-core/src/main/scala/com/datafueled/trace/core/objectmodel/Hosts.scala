@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.core
+package com.datafueled.trace.core.objectmodel
 
+import com.datafueled.trace.core.InMemoryStore
 import java.util.UUID
 
-class Host(val id: UUID, hostname: String)
+object Hosts extends InMemoryStore[UUID, Host]
 
