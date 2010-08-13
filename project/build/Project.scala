@@ -21,6 +21,7 @@ class Project(info: ProjectInfo) extends ParentProject(info)
 
   class TraceProject(info: ProjectInfo)
     extends DefaultProject(info)
+    with IdeaProject
     with BNDPlugin
   {
     override lazy val bndExecutionEnvironment = Set(Java6)
