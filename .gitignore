@@ -1,5 +1,6 @@
 *.iml
 *.ipr
+*.iws
 project/*.iml
 project/boot
 project/plugins/lib_managed
