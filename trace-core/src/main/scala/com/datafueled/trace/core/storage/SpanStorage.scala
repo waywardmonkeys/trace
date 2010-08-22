@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.core.datamodel
+package com.datafueled.trace.core.storage
 
-import com.datafueled.trace.core.storage.InMemoryStore
+import com.datafueled.trace.core.datamodel.Span
+import java.util.UUID
 
-object Threads extends InMemoryStore[Long, Thread]
+class SpanStorage extends InMemoryStore[UUID, Span] {
+}
 
