@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.core.objectmodel
+package com.datafueled.trace.core.datamodel
 
 import java.util.UUID
 
-class Thread(val threadID: Long, val sessionID: UUID)
-
+class Session(val id: UUID, val hostID: UUID, val baseTime: Long, val baseNanos: Long)

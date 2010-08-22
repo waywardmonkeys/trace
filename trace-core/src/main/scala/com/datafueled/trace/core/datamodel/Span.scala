@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.core.objectmodel
+package com.datafueled.trace.core.datamodel
 
 import java.util.UUID
 

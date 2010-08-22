@@ -16,7 +16,7 @@
 
 package com.datafueled.trace.util
 
-import com.datafueled.trace.core.objectmodel.Span
+import com.datafueled.trace.core.datamodel.Span
 
 class Timer(val parentSpan: Option[Span], val startTime: Long) {
   def stop : Span = {
