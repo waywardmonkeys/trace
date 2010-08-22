@@ -16,7 +16,7 @@
 
 package com.datafueled.trace.core.datamodel
 
-import com.datafueled.trace.core.InMemoryStore
+import com.datafueled.trace.core.storage.InMemoryStore
 
 object Threads extends InMemoryStore[Long, Thread]
 

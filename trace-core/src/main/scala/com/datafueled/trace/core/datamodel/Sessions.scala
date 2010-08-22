@@ -16,7 +16,7 @@
 
 package com.datafueled.trace.core.datamodel
 
-import com.datafueled.trace.core.InMemoryStore
+import com.datafueled.trace.core.storage.InMemoryStore
 import java.util.UUID
 
 object Sessions extends InMemoryStore[UUID, Session]

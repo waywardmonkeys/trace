@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.datafueled.trace.core
+package com.datafueled.trace.core.storage
 
 import scala.collection.mutable.HashMap
 
