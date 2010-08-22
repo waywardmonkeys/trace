@@ -9,7 +9,14 @@ class Project(info: ProjectInfo) extends ParentProject(info)
 {
   val junitVersion = "4.8.1"
   val scalaTestVersion = "1.2"
+  val slf4jVersion = "1.6.1"
+  val logbackVersion = "0.9.24"
 
+  val slf4jApi = "org.slf4j" % "slf4j-api" % slf4jVersion
+  val logbackCore = "ch.qos.logback" % "logback-core" % logbackVersion
+  val logbackClassic = "ch.qos.logback" % "logback-classic" % logbackVersion
+
+  // Test dependencies
   val scalaTest = "org.scalatest" % "scalatest" % scalaTestVersion % "test"
   val junit = "junit" % "junit" % junitVersion % "test"
 
